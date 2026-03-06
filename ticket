@@ -73,7 +73,7 @@ _iso_date() {
 _sed_i() {
     local file="$1"
     shift
-    local tmp="${file}.tmp.$$"
+    local tmp; tmp="$(mktemp)"
     sed "$@" "$file" > "$tmp" && mv "$tmp" "$file"
 }
 
