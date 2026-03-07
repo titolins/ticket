@@ -74,7 +74,7 @@ _sed_i() {
     local file="$1"
     shift
     local tmp; tmp="$(mktemp)"
-    sed "$@" "$file" > "$tmp" && mv "$tmp" "$file"
+    sed "$@" "$file" > "$tmp" && cat "$tmp" > "$file" && rm "$tmp"
 }
 
 # Generate ticket ID from directory name + random string
